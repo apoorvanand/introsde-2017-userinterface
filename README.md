@@ -1,4 +1,4 @@
-# introsde-2017-userinterface
+# The Virtual Lifestyle Coach
 
 ## 1. INTRODUCTION
 
