@@ -84,7 +84,7 @@ Every storage service has been implemented as SOAP service and are used in order
 
 We created a different storage service for each different api that are used (i.e. StorageServiceFitibit is connected with the AdapterService and will make use of the Fitbit API, while the StorageServicePerson is connected to the LocalDatabaseService and so on).
 
-Storage service data sources:
+#### Storage service data sources
 
 **StorageServiceBmi** contains its own internal database used in order to save the current Bmi values and the historical bmi status of a user. All the BMI information are taken by the BMI api.
 Model:
