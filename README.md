@@ -18,7 +18,7 @@ The application is composed by two different System logics, one used in order to
 
 * **Business Logic Services:** [BusinessLogicServiceGoal](https://github.com/ddellagiacoma/introsde-2017-businesslogicservicegoal) and [BusinessLogicServiceSentence](https://github.com/ddellagiacoma/introsde-2017-businesslogicservicesentence)
 
-* **Storage Services:**
+* **Storage Services:** [StorageServiceWeather](https://github.com/ddellagiacoma/introsde-2017-storageserviceweather), [StorageServiceSport](https://github.com/ddellagiacoma/introsde-2017-storageservicesport), [StorageServiceFitbit](https://github.com/ddellagiacoma/introsde-2017-storageservicefitbit), [StorageServiceBmi](https://github.com/ddellagiacoma/introsde-2017-storageservicebmi) and [StorageServicePerson](https://github.com/ddellagiacoma/introsde-2017-storageserviceperson)
 
 * **Local Database Service:** [LocalDatabaseService](https://github.com/ddellagiacoma/introsde-2017-localdatabaseservice)
 
