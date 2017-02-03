@@ -10,9 +10,21 @@ Since already exist a large amount of web services and applications that allow u
 
 The application is composed by two different System logics, one used in order to generate the motivational sentences based on users and external conditions while the other one is in charge to change the goals of the users drawing on the progress or the difficulties encountered by him/her.
 
+## 2. ARCHITECTURE
+
 ![image](https://cloud.githubusercontent.com/assets/24565161/22528141/3cd42206-e8d2-11e6-8eae-0a06fc128c31.png)
 
-## 2. IMPLEMENTATION
+* **Process Centric Services:** [ProcessCentricServiceGoal](https://github.com/ddellagiacoma/introsde-2017-processcentricservicegoal) and [ProcessCentricServiceSentence](https://github.com/ddellagiacoma/introsde-2017-processcentricservicesentence)
+
+* **Business Logic Services:** [BusinessLogicServiceGoal](https://github.com/ddellagiacoma/introsde-2017-businesslogicservicegoal) and [BusinessLogicServiceSentence](https://github.com/ddellagiacoma/introsde-2017-businesslogicservicesentence)
+
+* **Storage Services:**
+
+* **Local Database Service:** [LocalDatabaseService](https://github.com/ddellagiacoma/introsde-2017-localdatabaseservice)
+
+* **Adapter Service:** [AdapterService](https://github.com/ddellagiacoma/introsde-2017-adapterservice)
+
+## 3. IMPLEMENTATION
 
 In this chapter we are going to explain the architecture of the application and its orchestration.
 
@@ -20,13 +32,13 @@ The project consist in a set of services interfaced each other, but completely r
 
 The architecture of the project follows the delivery requirements and can be split in three main parts: Data Source, System Logic and User Interface [Schema above].
 
-### 2.1 Data Source
+### 3.1 Data Source
 
 This part contains a set of 7 different services responsible for the data storage and some initial and basic data manipulation.
 
 The project make use of both local and external databases and also make use of external api used in order to get some external detailed and accurate information.
 
-#### 2.1.1 LocalDatabaseService
+#### 3.1.1 LocalDatabaseService
 
 LocalDatabaseService is a RESTful service that provides CRUD operation on its data. This Service contains the application database and its models are:
 ```java
@@ -58,7 +70,7 @@ public class Level{
 }
 ```
 
-#### 2.1.2 AdapterService
+#### 3.1.2 AdapterService
 
 This web service provides the communication between the storage services and the external api. In particular this project make use of the following API:
 
@@ -68,7 +80,7 @@ This web service provides the communication between the storage services and the
 
 **BMI API:** used in order to have a descriptive and accurate calculation of the bmi in real time.
 
-#### 2.1.3 StorageService
+#### 3.1.3 StorageService
 
 Every storage service has been implemented as SOAP service and are used in order to perform all the methods allowed by the API listed above in order to get all the information necessary and perform some basic data manipulation on it. Some example in order to better understand the storage service functionalities:
 
@@ -127,13 +139,13 @@ public class Activity{
 ```
 The activity is used just in order to speed up the service by avoiding, whenever possible, to make use of the external API. The table contains the Fitbit activities information.
 
-### 2.2 System Logic
+### 3.2 System Logic
 
 This layer contains “higher level” services used in order to call the lower layer services for data accessing (Process centric services) and data manipulation (business logic services).
 
 As already said in the Introduction chapter we implemented two different system logic in order to achieve our two goals:
 
-#### 2.1.1 SystemLogicSentence
+#### 3.1.1 SystemLogicSentence
 
 This system logic is in charge to generate motivational sentences and advices based on the real time data collected using all the data source services listed above. For example:
 
@@ -147,13 +159,13 @@ Furthermore the system check once a day, how many goal the user has achieved in 
 
 This system logic is composed by the BusinessLogicServiceSentence (SOAP service) and the ProcessCentricServiceSentence (SOAP service). 
 
-#### 2.1.2 SystemLogicGoal
+#### 3.1.2 SystemLogicGoal
 
 This system logic is in charge to check and change the goals of the users drawing on the progress or the difficulties encountered by him/her. A basic example is that if a user usually don't reach his steps daily goal, probably it is because the goal is too difficult for him in that particular period of time, and, maybe it's better to decrease the difficulty of the goal (reach a goal is inspiring), while if the user always reach his goal, the goal pales into insignificance because it is too easy to reach, so the solution is to increase its difficulty.
 
 This system logic is composed by the BusinessLogicServiceGoal (SOAP service )and the ProcessCentricServiceGoal (SOAP service).
 
-#### 2.1.3 System Logic life-cycle
+#### 3.1.3 System Logic life-cycle
 
 Every system logic has the same architecture and act in the same way, their life-cycle could be summarized as follows:
 
@@ -173,7 +185,7 @@ Every system logic has the same architecture and act in the same way, their life
 
 2.	return a string.
 
-### 2.3 User interface
+### 3.3 User interface
 
 Since Fitbit API requires a web log in, the user interface consist in a web-application.
 
@@ -197,5 +209,5 @@ The application perform the following operation:
 
 *	once a day check the goal how many goal the user  and increase its field regard to the response.
 
-## 3. NOTES
+## 4. NOTES
 Note that the web application require a Fitbit account, make also sure to have enabled the localization on your browser.
