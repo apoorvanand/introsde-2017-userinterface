@@ -210,4 +210,4 @@ The application perform the following operation:
 *	once a day check the goal how many goal the user  and increase its field regard to the response.
 
 ## 4. NOTES
-Note that the web application require a Fitbit account, make also sure to have enabled the localization on your browser.
+Note that the web application requires a Fitbit account, make also sure to have enabled the localization on your browser.
